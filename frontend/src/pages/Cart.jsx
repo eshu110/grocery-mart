@@ -92,9 +92,10 @@ const Cart = () => {
     },[user])
     
     return  cartArray.length > 0 ? (
-     
-        <div className="flex flex-col md:flex-row mt-16">
-            <div className='flex-1 max-w-4xl'>
+
+            <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row justify-between items-start gap-10 mt-16 px-4">
+
+            <div className='flex-1'>
                 <h1 className="text-3xl font-medium mb-6">
                     Shopping Cart <span className="text-sm text-primary">{getCartCount()} Items</span>
                 </h1>
@@ -109,11 +110,15 @@ const Cart = () => {
                     <div
                      key={product._id || index} className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 items-center text-sm md:text-base font-medium pt-3">
                         <div className="flex items-center md:gap-6 gap-3">
-                            <div onClick={()=>{
-                                navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0,0)
-                            }} className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded overflow-hidden">
+                            <div
+                             onClick={()=>{
+                                navigate(`/products/${product.category.toLowerCase()}/${product._id}`);
+                                 scrollTo(0,0)
+                            }} 
+                            className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded overflow-hidden">
                                 <img className="max-w-full h-full object-cover" src={product.image[0]} alt={product.name} />
                             </div>
+
                             <div>
                                 <p className="hidden md:block font-semibold">{product.name}</p>
                                 <div className="font-normal text-gray-500/70">
@@ -207,7 +212,59 @@ const Cart = () => {
                 </button>
             </div>
         </div>
-    ) : null
-}
+    ) : (
+
+    // ✔ ✔ ✔ EMPTY CART LAYOUT ADDED HERE ✔ ✔ ✔
+<div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row justify-between gap-10 mt-16 px-4">
+
+        {/* LEFT SIDE - EMPTY CART MESSAGE */}
+        <div className="flex-1 ">
+            <h1 className="text-3xl font-medium mb-6">
+                Shopping Cart <span className="text-sm text-primary">0 Items</span>
+            </h1>
+
+            <div className="grid grid-cols-[2fr_1fr_1fr] text-gray-500 text-base font-medium pb-3">
+               <p className="text-left">Product Details</p>
+               <p className="text-center">Subtotal</p>
+               <p className="text-center">Action</p>
+            </div>
+
+            <p className="text-gray-500 mb-6">Your cart is empty.</p>
+
+            <button
+                onClick={() => { navigate("/product"); scrollTo(0, 0); }}
+                className="group cursor-pointer flex items-center mt-8 gap-2 text-primary font-medium"
+            >
+                <img
+                    className="group-hover:-translate-x-1 transition"
+                    src={assets.arrow_right_icon_colored}
+                />
+                Continue Shopping
+            </button>
+        </div>
+
+        {/* RIGHT SIDE - ORDER SUMMARY BOX LIKE FIRST PAGE */}
+        <div className="w-full lg:w-[360px] bg-gray-100/40 p-5 max-md:mt-16 border border-gray-300/70">
+
+            <h2 className="text-xl font-medium">Order Summary</h2>
+            <hr className="border-gray-300 my-5" />
+
+            <p className="text-gray-500">No items added.</p>
+
+            <p className="flex justify-between mt-4 text-gray-500">
+                <span>Total Amount:</span>
+                <span>₹0</span>
+            </p>
+
+            <button
+                className="w-full py-3 mt-6 bg-primary/60 text-white font-medium cursor-not-allowed"
+            >
+                Place Order
+            </button>
+        </div>
+
+    </div>
+    ); 
+};
 
 export default Cart;

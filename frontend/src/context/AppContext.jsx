@@ -46,7 +46,13 @@ export const AppContextProvider = ({children}) => {
     //Fetch User Auth Status, user Data And cart Items
     const fetchUser = async () => {
         try {
-            const {data} = await axios.get('/api/user/is-auth');
+            const {data} = await axios.get('/api/user/is-auth',{
+                withCredentials: true,
+                headers: {
+                   Authorization: `Bearer ${localStorage.getItem("token")}`
+              }
+            });
+            
             if (data.success){
                 setUser(data.user)
                 
