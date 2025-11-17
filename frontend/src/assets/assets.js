@@ -117,7 +117,7 @@ import tea_coffee_image from './tea_coffee_image.png';
 import blackTeaImage from './black_tea.png';
 import greenTeaImage from './green_tea.png';
 import herbalTeaImage from './herbal_tea.png';
-import instantCoffeeImage from './instant_coffee.png';
+import instantCoffeeImage from './Instant_coffee.png';
 import filterCoffeeImage from './filter_coffee.png';
 import condimentsImage from './condiments.png';
 import oreganoImage from './oregano.png';
