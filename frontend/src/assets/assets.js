@@ -74,7 +74,7 @@ import kabuli_chana_image from "./kabuli_chana_image.png";
 import sona_masoori_rice_image from "./sona_masoori_rice_image.png";
 import poha_image from "./poha_image.png";
 import bajra_flour_image from "./bajra_flour_image.png";
-import Flours_image from "./flours_image.png";
+import Flours_image from "./Flours_image.png";
 import jowar_image from "./jowar_image.png";
 import wheatSeedsImage from "./wheat_seeds_image.png";
 import bajraImage from "./bajra_image.png";
