@@ -1,4 +1,3 @@
-import { json } from "express"
 import {v2 as cloudinary} from "cloudinary";
 import Product from "../models/Product.js";
 
@@ -42,7 +41,7 @@ export const productList = async (req, res)=>{
 // Get Single Product : /api/product/id
 export const productById = async (req, res)=>{
     try {
-        const { id } = req.body
+        const { id } = req.params;
         const product = await Product.findById(id)
         res.json({success: true, product})
     } catch (error) {
